@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const util = require('util');
 
+//local
 const conn = mysql.createConnection({
   port: 3306,
   database: 'shopri',
@@ -10,6 +11,7 @@ const conn = mysql.createConnection({
   dateStrings: true
 });
 
+//publish
 // const conn = mysql.createConnection({
 //     port: 3306,
 //     database: 'rentochcom_shopri',
