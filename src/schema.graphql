@@ -2,7 +2,7 @@ type Query {
   user(id: ID!): User!
   users: [User!]!
   product(id: ID!): Product!
-  products(page: Int!, take: Int!): [Product!]!
+  products: [Product!]!
 }
 
 # for file upload purpose

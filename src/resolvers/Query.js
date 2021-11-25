@@ -9,13 +9,13 @@ const Query = {
         return users;
     },
     async product(parent, { id }, { dbQuery }, info){
-        const product = await dbQuery.products.findUnique({ where:{ id: Number(id) } });
-        if(!product) throw new Error('Product not found');
-        return product;
+        let product = await dbQuery(`SELECT * FROM products WHERE id = ${id}`);
+        if(!product[0]) throw new Error('Product not found');
+        return product[0];
     },
     async products(parent, { page, take}, { dbQuery }, info){
-        //TODO: Sort it
-        const products = await dbQuery.products.findMany({ skip: page * take, take });
+        //TODO: Paginate
+        const products = await dbQuery('SELECT * FROM products');
         return products;
     },
 }

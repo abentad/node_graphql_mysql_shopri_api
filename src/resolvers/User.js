@@ -1,6 +1,6 @@
 const User = {
-    async products(parent, args, { prisma }, info){
-        const products = await prisma.products.findMany({ where: { posterId: String(parent.id) } });
+    async products(parent, args, { dbQuery }, info){
+        const products = await dbQuery(`SELECT * FROM products WHERE posterId = ${parent.id}`);
         return products;
     }
 };
